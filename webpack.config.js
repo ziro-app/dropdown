@@ -1,11 +1,17 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const path = require('path')
 
 module.exports = (env, { mode }) => {
 	const config = {
+		output: { libraryTarget: 'commonjs2' },
+		externals: {
+			'react': 'react',
+			'react-dom': 'react-dom'
+		},
 		module: {
 			rules: [
-				{ 
+				{
 					test: /\.js$/, 
 					exclude: /node_modules/, 
 					use: {
