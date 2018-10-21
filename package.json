@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode=development --open",
     "build": "webpack --mode=production -p",
-    "publish": "rm -R dist && npm run build && npm publish --access=public"
+    "prepublish": "rm -R dist && npm run build"
   },
   "keywords": [],
   "author": "vitorbarbosa19",
