@@ -2,10 +2,11 @@
   "name": "@ziro/form-field",
   "version": "1.0.0",
   "description": "Ziro's standard form field React component",
-  "main": "./dist/main.js",
+  "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development --open",
-    "build": "webpack --mode=production -p"
+    "build": "webpack --mode=production -p",
+    "publish": "rm -R dist && npm run build && npm publish --access=public"
   },
   "keywords": [],
   "author": "vitorbarbosa19",
