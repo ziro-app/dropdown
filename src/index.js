@@ -1,8 +1,8 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React, { Component } from 'react'
 import './index.css'
 
-render(
-	<h1>Hello</h1>,
-	document.getElementById('app')
-)
+export default class Field extends Component {
+	render() {
+		return <h1>Hello!</h1>
+	}
+}

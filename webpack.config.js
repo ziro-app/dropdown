@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = (env, { mode }) => {
@@ -11,8 +10,8 @@ module.exports = (env, { mode }) => {
 		module: {
 			rules: [
 				{
-					test: /\.js$/, 
-					exclude: /node_modules/, 
+					test: /\.js$/,
+					exclude: /node_modules/,
 					use: {
 						loader: 'babel-loader',
 						options: {
@@ -32,15 +31,14 @@ module.exports = (env, { mode }) => {
 					use: ['style-loader', 'raw-loader']
 				}
 			]
-		},
-		plugins: [ new HtmlWebpackPlugin({ template: './src/index.html' }) ]
+		}
 	}
 	if (mode === 'development') {
 		config.devtool = 'cheap-module-eval-source-map'
 	}
 	if (mode === 'production') {
 		config.devtool = 'cheap-module-source-map'
-		config.plugins.push( new webpack.optimize.ModuleConcatenationPlugin() )
+		config.plugins = [ new webpack.optimize.ModuleConcatenationPlugin() ]
 	}
 	return config
 }
