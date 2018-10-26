@@ -1,19 +1,34 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
-    mode: 'production',
-    entry: './src/index.js',
     output: {
-        path: path.resolve('lib'),
-        filename: 'BoilerplateComponent.js',
         libraryTarget: 'commonjs2'
+    },
+    externals: {
+    	'react': 'react',
+    	'react-dom': 'react-dom'
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.js$/,
                 exclude: /(node_modules)/,
-				use: 'babel-loader'
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							'@babel/preset-env',
+							'@babel/preset-react'
+						],
+						plugins: [
+							'@babel/plugin-proposal-class-properties'
+						]
+					}
+				}
+            },
+            {
+            	test: /\.css$/,
+            	use: [ 'style-loader', 'raw-loader' ]
             }
         ]
     }

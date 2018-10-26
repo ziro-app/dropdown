@@ -2,11 +2,11 @@
   "name": "@ziro/form-field",
   "version": "1.0.3",
   "description": "Ziro's standard form field React component",
-  "main": "./lib/BoilerplateComponent.js",
+  "main": "./dist/main.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development --open",
     "build": "webpack --mode=production -p",
-    "prepublishOnly": "rm -R dist && npm run build",
+    "prepublishOnly": "npm run build",
     "update": "rm -R dist && npm run build"
   },
   "keywords": [],
@@ -18,12 +18,11 @@
     "react-dom": "^16.5.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "html-webpack-plugin": "^3.2.0",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
     "raw-loader": "^0.5.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
