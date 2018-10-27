@@ -1,13 +1,8 @@
-const path = require('path');
+const { optimize: { ModuleConcatenationPlugin } } = require('webpack')
 
 module.exports = {
-    output: {
-        libraryTarget: 'commonjs2'
-    },
-    externals: {
-    	'react': 'react',
-    	'react-dom': 'react-dom'
-    },
+    output: { libraryTarget: 'commonjs2' },
+    externals: { 'react': 'react', 'react-dom': 'react-dom' },
     module: {
         rules: [
             {
@@ -16,16 +11,12 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: [
-							'@babel/preset-env',
-							'@babel/preset-react'
-						],
-						plugins: [
-							'@babel/plugin-proposal-class-properties'
-						]
+						presets: [ '@babel/preset-env', '@babel/preset-react'],
+						plugins: [ '@babel/plugin-proposal-class-properties' ]
 					}
 				}
             }
         ]
-    }
+    },
+    plugins: [ new ModuleConcatenationPlugin() ]
 }

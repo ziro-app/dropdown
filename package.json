@@ -4,10 +4,10 @@
   "description": "Ziro's standard form field React component",
   "main": "./dist/main.js",
   "scripts": {
-    "start": "webpack-dev-server --mode=development --open",
     "build": "webpack --mode=production -p",
+    "update": "rm -R dist && npm run build",
     "prepublishOnly": "npm run build",
-    "update": "rm -R dist && npm run build"
+    "publish": "npm version patch && npm publish --access=public"
   },
   "keywords": [],
   "author": "vitorbarbosa19",
