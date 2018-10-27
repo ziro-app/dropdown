@@ -5,8 +5,7 @@
   "main": "./dist/main.js",
   "scripts": {
     "build": "webpack --mode=production -p",
-    "update": "rm -R dist && npm run build",
-    "publish": "npm version patch && npm publish --access=public"
+    "update": "rm -R dist && npm run build"
   },
   "keywords": [],
   "author": "vitorbarbosa19",
