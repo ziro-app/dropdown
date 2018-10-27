@@ -1,6 +1,6 @@
 {
   "name": "@ziro/form-field",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Ziro's standard form field React component",
   "main": "./dist/main.js",
   "scripts": {
