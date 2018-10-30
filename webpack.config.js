@@ -1,7 +1,7 @@
 const { optimize: { ModuleConcatenationPlugin } } = require('webpack')
 
 module.exports = {
-    output: { libraryTarget: 'commonjs2' },
+    output: { library: 'Dropdown', libraryTarget: 'commonjs2' },
     externals: { 'react': 'react', 'react-dom': 'react-dom' },
     module: {
         rules: [
