@@ -1,7 +1,7 @@
 {
-  "name": "@ziro/form-field",
+  "name": "@ziro/dropdown",
   "version": "1.0.17",
-  "description": "Ziro's standard form field React component",
+  "description": "Standard dropdown field built as a React component",
   "main": "./dist/main.js",
   "scripts": {
     "build": "webpack --mode=production -p",
@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "vitorbarbosa19",
   "license": "ISC",
-  "repository": "ziro-app/form-field",
+  "repository": "ziro-app/dropdown",
   "peerDependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
