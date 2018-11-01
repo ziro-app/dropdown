@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class Dropdown extends Component {
 	state = {
@@ -18,4 +19,9 @@ export default class Dropdown extends Component {
 		</div>
 	)
 
+}
+
+Dropdown.propTypes = {
+	options: PropTypes.arrayOf(PropTypes.string).isRequired,
+	updateParent: PropTypes.func.isRequired
 }
