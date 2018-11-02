@@ -2,21 +2,17 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class Dropdown extends Component {
-	state = {
-		userInput: ''
-	}
 	handleChange = ({ target: { value }}) => {
-		this.setState({ userInput: value })
 		this.props.updateParent(this.props.name, value)
 	}
-	render = () => (
+	render = () =>
 		<div>
 			<input
-				list='dropdown-options'
+				list={`dropdown-options-${this.props.name}`}
 				placeholder={this.props.placeholder}
 				onChange={this.handleChange}
 			/>
-			<datalist id='dropdown-options'>
+			<datalist id={`dropdown-options-${this.props.name}`}>
 				{
 					this.props.options.map( (option, index) =>
 						<option key={index} value={option} />
@@ -24,8 +20,6 @@ export default class Dropdown extends Component {
 				}
 			</datalist>
 		</div>
-	)
-
 }
 
 Dropdown.propTypes = {
