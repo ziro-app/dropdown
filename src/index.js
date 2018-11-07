@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { container, input, inputFocus } from './styles'
 
 export default class Dropdown extends Component {
+	state = { isFilled: false }
 	handleChange = ({ target: { value }}) => {
 		this.props.updateParent(this.props.name, value)
+		if (value === '')
+			this.setState({ isFilled: false })
+		else
+			this.setState({ isFilled: true })
 	}
 	render = () =>
-		<div>
+		<div style={container}>
 			<input
+				style={this.state.isFilled ? inputFocus : input}
 				list={`dropdown-options-${this.props.name}`}
 				placeholder={this.props.placeholder}
 				onChange={this.handleChange}
