@@ -4,12 +4,10 @@ import { container, input, inputFocus } from './styles'
 
 export default class Dropdown extends Component {
 	state = { isFilled: false }
-	handleChange = ({ target: { value }}) => {
-		this.props.updateParent(this.props.name, value)
-		if (value === '')
-			this.setState({ isFilled: false })
-		else
-			this.setState({ isFilled: true })
+	handleChange = ({ target: { value }}) => this.props.updateParent(this.props.name, value)
+	componentDidUpdate = ({ value: previousValue }) => {
+		if (this.props.value !== previousValue )
+			this.setState({ isFilled: this.props.value !== '' ? true : false })
 	}
 	render = () =>
 		<div style={container}>
@@ -17,6 +15,7 @@ export default class Dropdown extends Component {
 				style={this.state.isFilled ? inputFocus : input}
 				list={`dropdown-options-${this.props.name}`}
 				placeholder={this.props.placeholder}
+				value={this.props.value}
 				onChange={this.handleChange}
 			/>
 			<datalist id={`dropdown-options-${this.props.name}`}>
@@ -30,8 +29,9 @@ export default class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
-	name: PropTypes.string.isRequired, // must be the state name inside React parent component
+	name: PropTypes.string.isRequired, // must be the state name given in parent component
 	placeholder: PropTypes.string,
 	options: PropTypes.arrayOf(PropTypes.string).isRequired,
+	value: PropTypes.string.isRequired,
 	updateParent: PropTypes.func.isRequired
 }
