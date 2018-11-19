@@ -1,5 +1,3 @@
-const CompressionPlugin = require('compression-webpack-plugin')
-
 module.exports = {
     output: { libraryTarget: 'commonjs2' },
     externals: { 'react': 'react', 'prop-types': 'prop-types' },
@@ -17,6 +15,5 @@ module.exports = {
 				}
             }
         ]
-    },
-    plugins: [ new CompressionPlugin ]
+    }
 }
