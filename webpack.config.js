@@ -1,4 +1,4 @@
-const { optimize: { ModuleConcatenationPlugin } } = require('webpack')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
     output: { libraryTarget: 'commonjs2' },
@@ -18,5 +18,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [ new ModuleConcatenationPlugin() ]
+    plugins: [ new CompressionPlugin ]
 }
