@@ -1,6 +1,6 @@
 {
   "name": "@ziro/dropdown",
-  "version": "1.0.25",
+  "version": "1.0.27",
   "description": "Standard dropdown field built as a React component",
   "main": "./dist/main.js",
   "scripts": {

@@ -11,7 +11,7 @@ export default class Dropdown extends Component {
 	}
 	componentDidUpdate = ({ value: previousValue }) => {
 		if (this.props.value !== previousValue )
-			this.setState({ isFilled: this.props.value !== '' ? true : false })
+			this.setState({ isFilled: !Boolean(this.props.value) })
 	}
 	render = () =>
 		<div style={container}>
