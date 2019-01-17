@@ -5,6 +5,10 @@ import { container, input, inputFocus } from './styles'
 export default class Dropdown extends Component {
 	state = { isFilled: false }
 	handleChange = ({ target: { value }}) => this.props.updateParent(this.props.name, value)
+	componentDidMount = () => {
+		if (this.props.value)
+			this.setState({ isFilled: true })
+	}
 	componentDidUpdate = ({ value: previousValue }) => {
 		if (this.props.value !== previousValue )
 			this.setState({ isFilled: this.props.value !== '' ? true : false })
@@ -19,11 +23,9 @@ export default class Dropdown extends Component {
 				onChange={this.handleChange}
 			/>
 			<datalist id={`dropdown-options-${this.props.name}`}>
-				{
-					this.props.options.map( (option, index) =>
-						<option key={index} value={option} />
-					)
-				}
+				{this.props.options.map( (option, index) =>
+					<option key={index} value={option} />
+				)}
 			</datalist>
 		</div>
 }
